@@ -1,52 +1,29 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
-import "./styles/Home.css";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { CampaignDetails, CreateCampaign, Home, Profile } from './pages';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import './index.css'
 
-export default function Home() {
+const App = () => {
   return (
-    <div className="container">
-      <main className="main">
-        <h1 className="title">
-          Welcome to <a href="https://thirdweb.com/">thirdweb</a>!
-        </h1>
-
-        <p className="description">
-          Get started by configuring your desired network in{" "}
-          <code className="code">src/main.jsx</code>, then modify the{" "}
-          <code className="code">src/App.jsx</code> file!
-        </p>
-
-        <div className="connect">
-          <ConnectWallet dropdownPosition={{
-            align: 'center',
-            side: 'bottom'
-          }} />
+    <div className="App" style={{ display: 'flex' }} >
+      <div >
+        <Sidebar />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <div style={{display:'flex', alignItems:'top'}}>
+          <Navbar />
         </div>
-
-        <div className="grid">
-          <a href="https://portal.thirdweb.com/" className="card">
-            <h2>Portal &rarr;</h2>
-            <p>
-              Guides, references and resources that will help you build with
-              thirdweb.
-            </p>
-          </a>
-
-          <a href="https://thirdweb.com/dashboard" className="card">
-            <h2>Dashboard &rarr;</h2>
-            <p>
-              Deploy, configure and manage your smart contracts from the
-              dashboard.
-            </p>
-          </a>
-
-          <a href="https://portal.thirdweb.com/templates" className="card">
-            <h2>Templates &rarr;</h2>
-            <p>
-              Discover and clone template projects showcasing thirdweb features.
-            </p>
-          </a>
-        </div>
-      </main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<CreateCampaign />} />
+          <Route path="/campaign" element={<CampaignDetails />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </div>
     </div>
-  );
+  )
 }
+
+export default App

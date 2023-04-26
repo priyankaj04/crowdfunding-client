@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap");
+
+
+.linear-gradient {
+    background: linear-gradient(179.14deg,
+            rgba(32, 18, 63, 0) -7.14%,
+            #000000 87.01%);
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.8);
+}
+
+input::-webkit-input-placeholder {
+    color: #a8a29e;
+}
+
+input:-moz-placeholder {
+    color: #a8a29e;
+}
+
+input:-ms-input-placeholder {
+    color: #a8a29e;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.App{
+    background: #09090b;
+    min-width: 100vw;
+    min-height: 100vh;
+    font-family:'Epilogue', sans-serif;
+    margin:0;
+    padding:0; 
+    color: whitesmoke;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 35px;
+    gap: 6px;
+}
+
+.menu{
+    color: #ffffff
+}
+
+.menu:hover{
+    color: orange;
+    background-color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .app {
+        padding-right: 1.25rem;
+    }
+
+    .navbar{
+        flex-direction: column-reverse;
+    }
+}
