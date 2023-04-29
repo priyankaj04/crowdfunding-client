@@ -4,6 +4,7 @@ import { CustomButton, Animations } from './'
 import { logo, menu, search, thirdweb } from './../assets'
 import { navlinks } from '../constants';
 import { Capitalize } from './CommonFuncs';
+import { useStateContext } from '../context';
 import anime from 'animejs';
 
 const Navbar = () => {
@@ -11,13 +12,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
   const [toggleDrawer, setToggleDrawer] = useState(false);
-  const address = ['0xsldkfj'];
+  const { connect, address } = useStateContext()
 
 
   return (
     <div style={{ height: 72, alignItems: 'center', display: 'flex', flex: 1 }}>
       <div style={{ display: 'flex', flex: 1, maxWidth: 458, paddingLeft: 4, paddingTop: 2, paddingRight: 2, paddingBottom: 2, height: 48, background: '#292524', borderRadius: 20 }}>
-        <input placeholder='Search for Campaign' style={{ dispaly: 'flex', width: '100%', fontFamily: "'Epilogue', sans-serif", fontSize: 16, background: 'transparent', color: 'white', outline: 'none', border: '0px', borderRadius: 20, padding: 5 }} />
+        <input placeholder='Search for Campaign' style={{ display: 'flex', width: '100%', fontFamily: "'Epilogue', sans-serif", fontSize: 16, background: 'transparent', color: 'white', outline: 'none', border: '0px', borderRadius: 20, padding: 5 }} />
         <div style={{ width: 72, height: '100%', borderRadius: 20, background: '#f97316', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
           <img src={search} alt="search" style={{ width: 20, height: 20, objectFit: 'contain' }} />
         </div>
@@ -28,8 +29,8 @@ const Navbar = () => {
             btnType="button"
             title={address ? 'Create a Campaign' : 'Connect'}
             handleClick={() => {
-              if (address) navigate('create-campaign')
-              else "connect()"
+              if (address) navigate('create')
+              else connect()
             }}
           />
 

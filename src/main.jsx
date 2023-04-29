@@ -1,7 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { Sepolia } from "@thirdweb-dev/chains";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { StateContextProvider } from "./context";
 import { BrowserRouter as Router } from "react-router-dom";
 import './index.css'
 
@@ -14,9 +16,11 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
     <React.StrictMode>
-        <ThirdwebProvider activeChain={activeChain}>
+        <ThirdwebProvider activeChain={Sepolia}>
             <Router>
-                <App />
+                <StateContextProvider>
+                    <App />
+                </StateContextProvider>
             </Router>
         </ThirdwebProvider>
     </React.StrictMode>

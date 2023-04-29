@@ -15,7 +15,7 @@ const Sidebar = () => {
             <img src={logo} alt="fund_logo" style={{ width: '50%', height: '50%' }} />
           </div>
         </Link>
-        <div style={{ display: 'flex', flex: 1, width: 76, flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', background: '#18181b', borderRadius: 10, flex: 1, marginTop: 25, paddingTop: 5, paddingBottom: 5 }}>
+        <div style={{ display: 'flex', flex: 1, width: 76, flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', background: '#18181b', borderRadius: 10, marginTop: 25, paddingTop: 5, paddingBottom: 5 }}>
           <div style={{ display: 'flex', flex: 1, justifyContent: 'flex-start', gap: 3, alignItems: 'top', flexDirection: 'column' }}>
             {
               navlinks.map((link) =>

@@ -25,33 +25,34 @@ input:-ms-input-placeholder {
     color: #a8a29e;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    
 }
 
-.App{
+.App {
     background: #09090b;
     min-width: 100vw;
     min-height: 100vh;
-    font-family:'Epilogue', sans-serif;
-    margin:0;
-    padding:0; 
+    font-family: 'Epilogue', sans-serif;
+    margin: 0;
+    padding: 0;
     color: whitesmoke;
 }
 
-.navbar{
+.navbar {
     display: flex;
     flex-direction: row;
     margin-bottom: 35px;
     gap: 6px;
 }
 
-.menu{
+.menu {
     color: #ffffff
 }
 
-.menu:hover{
+.menu:hover {
     color: orange;
     background-color: #ffffff;
 }
@@ -61,7 +62,7 @@ input:-ms-input-placeholder {
         padding-right: 1.25rem;
     }
 
-    .navbar{
+    .navbar {
         flex-direction: column-reverse;
     }
 }

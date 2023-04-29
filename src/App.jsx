@@ -11,15 +11,15 @@ const App = () => {
       <div >
         <Sidebar />
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', flex: 1}}>
         <div style={{display:'flex', alignItems:'top'}}>
           <Navbar />
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreateCampaign />} />
-          <Route path="/campaign" element={<CampaignDetails />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/campaign/:id" element={<CampaignDetails />} />
         </Routes>
       </div>
     </div>
