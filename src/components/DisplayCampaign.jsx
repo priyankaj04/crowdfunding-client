@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { tagType, thirdweb } from '../assets';
 import { daysLeft } from '../utils';
+import { motion } from "framer-motion"
 
 const DisplayCampaign = (props) => {
 
@@ -16,7 +17,7 @@ const DisplayCampaign = (props) => {
     const remainingDays = daysLeft(data.deadline);
 
     return (
-        <div onClick={() => navigate(`/campaign/${data.title}`, {state: data})}
+        <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.9 }} onClick={() => navigate(`/campaign/${data.title}`, {state: data})}
             style={{ background: '#18181b', width: 450, borderRadius: 20, margin: 20, display: 'flex', flexDirection: 'column', cursor: 'pointer' }}>
             <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
                 <img src={data.image} width={350} style={{ borderRadius: 10, margin: 30 }} />
@@ -43,7 +44,7 @@ const DisplayCampaign = (props) => {
                     <p style={{ color: '#71717a', fontSize: 14 }}> by {data.owner}</p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

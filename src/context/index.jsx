@@ -24,9 +24,9 @@ export const StateContextProvider = ({ children }) => {
                 ]
             })
 
-            console.log("Contract call success", data)
+            //console.log("Contract call success", data)
         } catch (error) {
-            console.log("Contract call failed", error)
+            //console.log("Contract call failed", error)
         }
 
     }
@@ -47,21 +47,19 @@ export const StateContextProvider = ({ children }) => {
             }))
             return campaigns;
         } catch (error) {
-            console.log("Get campaign data failed: ", error)
+            //console.log("Get campaign data failed: ", error)
         }
     }
 
     const getUserCampaign = async () => {
         const allCampaigns = await getCampaigns();
-
         const filteredCampaigns = allCampaigns.filter(campaign => campaign.owner === address);
-
         return filteredCampaigns;
     }
 
     const donate = async (_pId, amount) => {
         const data = await contract.call('donateToCampaign', [_pId], {value: ethers.utils.parseEther(amount) });
-        console.log(data)
+        //console.log(data)
         return data;
     }
 
@@ -77,7 +75,7 @@ export const StateContextProvider = ({ children }) => {
                 donations: ethers.utils.formatEther(donations[1][i].toString())
             })
         }
-        console.log(parseDonations)
+        //console.log(parseDonations)
         return parseDonations;
     }
 
