@@ -5,6 +5,7 @@ import { logo, close, menu1, search, thirdweb } from './../assets'
 import { navlinks } from '../constants';
 import { Capitalize } from './CommonFuncs';
 import { useStateContext } from '../context';
+import { motion } from "framer-motion"
 
 const Navbar = () => {
 
@@ -43,20 +44,20 @@ const Navbar = () => {
           {toggleDrawer ? <img src={close} alt='cancle' style={{ width: 25, height: 25, margin: 10, cursor: 'pointer' }} onClick={() => setToggleDrawer(!toggleDrawer)} /> : <img src={menu1} alt="hamburger" style={{ width:25, height: 25, margin: 10, cursor: 'pointer' }} onClick={() => { setToggleDrawer(!toggleDrawer) }} />}
           {toggleDrawer && <div style={{ position: 'absolute', width: '100vw', height: '100vh', background: '#0c0a09', top: 60, transition: "all 700", zIndex: 10, right: 0, left: 0 }}>
             <Animations />
-            <div style={{ position: 'absolute', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1}}>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1}} style={{ position: 'absolute', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1}}>
                   {
-                navlinks.map((link) => (<div  className='menu' style={{diplay:'flex', flex: 1, flexDirection:'column', alignItems:'center'}}>
-                  <div style={{display:'flex', flex: 1, textAlign:'center', margin: 30, padding: 10, alignItems:'center'}}
+                navlinks.map((link, index) => (<motion.div initial={{opacity: 0, x: 0}} animate={{ opacity: 1, x: { duration: 1}}}  className='menu' style={{diplay:'flex', flex: 1, flexDirection:'column', alignItems:'center'}}>
+                  <motion.div style={{display:'flex', flex: 1, textAlign:'center', margin: 30, padding: 10, alignItems:'center'}}
                       onClick={() => {
                         setIsActive(link.name);
                         setToggleDrawer(false);
                         navigate(link.link)
-                    }}><p style={{textAlign:'center'}}>{Capitalize(link.name)}</p>
-                  </div>
-                  <hr style={{ width: "100vw"}} />
-                  </div>))
+                    }}><motion.p initial={{ opacity: 0, x: 0 }} animate={{ opacity: 1, x: 50 }} transition={{ duration: 0.5, delay: 1 + 0.5 * index }} style={{textAlign:'center'}}>{Capitalize(link.name)}</motion.p>
+                  </motion.div>
+                  <motion.hr initial={{ opacity: 0, width: 0 }} animate={{ opacity: 1, width: '100vw' }} transition={{duration: 0.5, delay: 1+0.5*index}} style={{ width: "100vw"}} />
+                  </motion.div>))
                   }
-              </div>
+            </motion.div>
           </div>}
         </div>
       }
