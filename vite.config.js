@@ -13,4 +13,5 @@ export default defineConfig({
 	define: {
 		'process.env': {},
 	},
+	base: '/crowdfunding-client/'
 });
