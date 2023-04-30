@@ -9,6 +9,7 @@ export const StateContextProvider = ({ children }) => {
     const { mutateAsync: createCampaign } = useContractWrite(contract, "createCampaign")
     const address = useAddress();
     const connect = useMetamask();
+    let mode = 'dark';
 
     const publishCampaign = async (form) => {
 
@@ -29,6 +30,11 @@ export const StateContextProvider = ({ children }) => {
             //console.log("Contract call failed", error)
         }
 
+    }
+
+    const darkmode = (check) => {
+        mode = check;
+        return mode;
     }
 
     const getCampaigns = async () => {
@@ -89,7 +95,9 @@ export const StateContextProvider = ({ children }) => {
                 getCampaigns,
                 getUserCampaign,
                 donate,
-                getDonations
+                getDonations, 
+                mode,
+                darkmode
             }}
         >
             {children}

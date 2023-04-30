@@ -31,6 +31,10 @@ input:-ms-input-placeholder {
     
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 .App {
     background: #09090b;
     min-width: 100vw;

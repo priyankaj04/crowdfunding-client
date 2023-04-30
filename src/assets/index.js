@@ -13,6 +13,8 @@ import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
 import nodata from './nodata.svg';
+import menu1 from './menu1.svg';
+import close from './close.svg';
 
 export {
   tagType,
@@ -30,4 +32,6 @@ export {
   loader,
   thirdweb,
   nodata,
+  menu1,
+  close
 };
